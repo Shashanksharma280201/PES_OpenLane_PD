@@ -139,28 +139,28 @@ flow.tcl is the file that contains the script to run the designs
 
 Different software dependencies are needed to run OpenLANE. To import these into the OpenLANE tool we need to run: ```package require openlane 0.9```
 
-![day1 3](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/4bf0e1a1-db97-44f6-b20e-f198412245ac)
+![day1 12](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/9587e861-10e5-4882-8ba4-709766f5df88)
 
 ## Designs presnt in openalne and Heirarchy in a Design
 
-![day1 4](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/df271be2-b593-40b5-bb45-28c7b17b9baf)
+![day1 3](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/63f73b81-d15a-45d1-9b5e-daea5b2ea342)
 
 - ```Src folder``` - Contains verilog files and sdc constraint files
 - ```Config.tcl files``` - Design specific configuration switches used by OpenLANE
 
 ## Config file example content
 
-![day1 6](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/f6c1cf8f-d5ea-464d-b00b-73894cd37a57)
+![day1 4](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/1eafe914-cb4e-4d38-bf1f-e73f74a5512d)
 
 ## Prepare the design for the flow 
 
 ```prep -design <design_name> -tag <tag>```
 
-![day1 5](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/1fe4de01-09f6-47cb-b3c7-8d1c8492c699)
+![day1 11](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/ad112456-9253-4d07-beab-a53cc192ac7c)
 
 Once the design prep stage is done, it creates a runs directory where all the results will be stored
 
-![day1 11](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/6ea5869b-2b7a-49b5-acc4-5005accf5aa0)
+![day1 6](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/60c60edd-60c1-4526-82b5-121b44fa3528)
 
 ## Synthesis
 
