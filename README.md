@@ -2,7 +2,7 @@
 
 ## IC Package 
 
-<img width="600" height="400" alt="image" src="https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/96055996-9ea4-4f61-b9fb-295efe5b1bbb">
+![ard](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/1c46e484-c6c9-4974-9e4b-40561379084a)
 
 The most critical component of the IC is the ```chip``` because it contains the actual functionality of the device and IO pads helps in exchange of signals with the chip.
 
