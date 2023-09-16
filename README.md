@@ -313,5 +313,5 @@ These are the main parameters that we use to calculate factors such as propogati
 
 - ```propogation delay ``` - time(out_*_thr) - time(in_*_thr)
 - ```Transition time``` - time(slew_high_rise_thr) - time(slew_low_rise_thr)
-- 
+
 </details>
