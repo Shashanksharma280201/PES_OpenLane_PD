@@ -8,7 +8,7 @@ The most critical component of the IC is the ```chip``` because it contains the 
 
 ## CHIP
 
-![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/2d811fbe-7f4d-4dae-8bd5-e1d26c7df813)
+![riscv](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/4986aa96-829b-4355-b5ff-0da1356477fb)
 
 A chip usually consists of different components such as macros, IO Pads and pins, Foundary IPs etc.
 
