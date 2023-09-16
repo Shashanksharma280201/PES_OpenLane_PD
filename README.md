@@ -150,13 +150,13 @@ Different software dependencies are needed to run OpenLANE. To import these into
 
 ## Config file example content
 
-![day1 5](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/1fe4de01-09f6-47cb-b3c7-8d1c8492c699)
+![day1 6](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/f6c1cf8f-d5ea-464d-b00b-73894cd37a57)
 
 ## Prepare the design for the flow 
 
 ```prep -design <design_name> -tag <tag>```
 
-![day1 6](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/f6c1cf8f-d5ea-464d-b00b-73894cd37a57)
+![day1 5](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/1fe4de01-09f6-47cb-b3c7-8d1c8492c699)
 
 Once the design prep stage is done, it creates a runs directory where all the results will be stored
 
