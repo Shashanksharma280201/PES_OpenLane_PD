@@ -115,3 +115,67 @@ run_antenna_check
 
 # COURSE
 
+
+<details>
+<summary>DAY 1 : Inception of opensource-EDA, Opennlane and Skywater130</summary>
+<br>
+
+## Skywater-130 PDK
+
+![day1 1](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/8eb5cd23-a9c2-4da4-84e6-8bea5e98fdf5)
+
+The Skywater PDK files we are working with are described under $PDK_ROOT
+1. Skywater-pdk – Contains all the foundry provided PDK related files
+2. Open_pdks – Contains scripts that are used to bridge the gap between closed-source and open-source PDK to EDA tool compatibility
+3. Sky130A – The open-source compatible PDK files
+
+## Invoking OpenLane
+
+![day1 2](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/a4d1de38-cd1e-4a3d-97e8-c987e9721cf4)
+
+flow.tcl is the file that contains the script to run the designs
+
+## Importing package
+
+Different software dependencies are needed to run OpenLANE. To import these into the OpenLANE tool we need to run: ```package require openlane 0.9```
+
+![day1 3](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/4bf0e1a1-db97-44f6-b20e-f198412245ac)
+
+## Designs presnt in openalne and Heirarchy in a Design
+
+![day1 4](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/df271be2-b593-40b5-bb45-28c7b17b9baf)
+
+- ```Src folder``` - Contains verilog files and sdc constraint files
+- ```Config.tcl files``` - Design specific configuration switches used by OpenLANE
+
+## Config file example content
+
+![day1 5](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/1fe4de01-09f6-47cb-b3c7-8d1c8492c699)
+
+## Prepare the design for the flow 
+
+```prep -design <design_name> -tag <tag>```
+
+![day1 6](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/f6c1cf8f-d5ea-464d-b00b-73894cd37a57)
+
+Once the design prep stage is done, it creates a runs directory where all the results will be stored
+
+![day1 11](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/6ea5869b-2b7a-49b5-acc4-5005accf5aa0)
+
+## Synthesis
+
+```run_synthesis```
+
+![day1 7](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/79fe040a-1436-4f1e-8c62-0a8fb052051a)
+
+****The main task to do at the beginning stage is to find the flop ration ie., (No. of D flip flops / Total number of cells)****
+
+![day1 8](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/c976f9f8-6210-4521-b9cb-57104e7d7950)
+
+![day1 9](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/1add254f-c995-40ea-93ef-78c7b05c3bc1)
+
+![day1 10](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/a36cfb34-c430-45b0-8be8-a8bfeaa628d6)
+
+
+</details>
+
