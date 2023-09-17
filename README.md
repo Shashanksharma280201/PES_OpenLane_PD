@@ -535,9 +535,9 @@ Track info can be found at :
 
 Layout before setting grid info vs after setting grid info
 
-<img width="333" height="420" alt="image" src="https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/e85123af-bc48-4150-9694-cf105a99493c">
-<img width="333" height="420" alt="image" src="https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/1ad46a25-95e6-4fe6-836c-0b1e34d6eef5">
-<img width="333" height="420" alt="image" src="https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/d0a2753b-7216-43c9-ad9a-992feffcaa40">
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/5a59eeb9-8053-48c9-8316-55bfe1655e62)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/de619090-164f-4171-8890-565c424f9b71)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/374897b8-9f17-44d4-bcec-8679cae412a7)
 
 - From the above pic, its confirmed that the pins A and Y are at the intersection of X and Y tracks. So the first condition is met.
 - The PR boundary is taking 3 grids on width and 9 grids on height which says that the 2nd condition is also met
@@ -554,25 +554,25 @@ Since the layout is perfect, we can generate the lef file
    - Open using ``` magic -T sky130A.tch sky130_vsdinv.mag```
    - in the console opened, type ```lef write``` and a lef file will be generated
 
-![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/02952069-8336-47d6-a94b-7798300139fc)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/076337b8-cccb-451c-830a-58d6173c2539)
 
 #### 3. Plug the generated lef file into PICORV32a
 
 To do this, we need the lef file, library file that has cells
-![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/00f25603-333a-4fed-9624-73b2737ec4fc)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/7b5d1322-26f8-4e8f-b477-c14c00a9e974)
 
 Change config file so that these libraries and lef file is used
 
-![Screenshot from 2023-09-14 15-46-16](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/7b474efc-df06-4cb8-8794-005226e4933c)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/9d4f140c-fc8a-47d3-82fb-82fe4e082019)
 
 
 #### 4. Make sure the lef file is added
 
 add the below 2 lines in the initial stage of interactive flow and ```run_synthesis```  to see if our inverter has been used and find timing violations if any.
 
-![2lines](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/1c964f50-cefe-426f-9104-4562a1aab570)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/1b22f494-b45a-4a97-9825-c4939ffebe72)
 
-![Screenshot from 2023-09-14 15-56-41](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/6ecd11e0-7b09-4966-9e36-897348896515)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/1a2e9d87-8546-4311-bd39-20c288cf8c51)
 
 The above figure shows that our vsdinv cell has been used in synthesis process
 
