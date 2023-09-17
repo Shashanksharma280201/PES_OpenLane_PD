@@ -1,14 +1,9 @@
 # Advanced Physical Design using OpenLANE/Sky130 
 
 ## IC Package 
-
-![ard](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/1c46e484-c6c9-4974-9e4b-40561379084a)
-
 The most critical component of the IC is the ```chip``` because it contains the actual functionality of the device and IO pads helps in exchange of signals with the chip.
 
 ## CHIP
-
-![riscv](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/4986aa96-829b-4355-b5ff-0da1356477fb)
 
 A chip usually consists of different components such as macros, IO Pads and pins, Foundary IPs etc.
 
