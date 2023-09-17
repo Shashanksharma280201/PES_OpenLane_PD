@@ -619,9 +619,6 @@ Since we have synthesised the core using our vsdinv cell too and as it got succe
 
 - now in the openlane flow, continue with ```run_flooorplan``` ```run_placement``` ```run_cts```
 
-- To ensure that the cts step has added buffers and modified the netlist
-    ![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/69ddb549-d4bb-41e0-836c-686f2c375b1c)
-
 ## Post CTS- STA Analysis
 
 OpenLANE has the OpenROAD application integrated into its flow. The OpenROAD application has OpenSTA integrated into its flow. Therefore, we can perform STA analysis from within OpenLANE by invoking OpenROAD.
