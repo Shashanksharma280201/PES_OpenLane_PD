@@ -315,3 +315,195 @@ These are the main parameters that we use to calculate factors such as propogati
 - ```Transition time``` - time(slew_high_rise_thr) - time(slew_low_rise_thr)
 
 </details>
+
+
+
+
+
+
+
+
+
+
+<details>
+<summary>DAY 3 :  Design library cell </summary>
+<br>
+
+## SPICE Deck creation for CMOS Inverter
+
+SPICE deck contains the information of netlist such as:
+- Connectivity Information
+- Component values
+- 'Nodes' identified
+- 'Node' names
+- 
+### [CMOS_INVERTER.cir]()
+
+```
+*** MODEL DESCRIPTIONS ***
+*** NETLIST DESCRIPTION ***
+M1 out in vdd vdd pmos W=0.375u L=0.25u
+M2 out in 0 0 nmos W=0.375u L=0.25u
+
+cload out 0 10f
+
+Vdd vdd 0 2.5
+Vin in 0 2.5
+*** SIMULATION Commands ***
+
+.op
+.dc Vin 0 2.5 0.05
+*** include tsmc_025um_model.mod ***
+.LIB "tsmc_025um_models.mod" CMOS_MODELS
+.end
+```
+
+SPICE Simulation steps
+```
+cd <folder where the .cir file is present>
+source CMOS_INVERTER.cir
+run
+setplot
+dc1
+display
+plot out vs in
+```
+
+Observe the output. It should be symmetric ie., the threshold voltage should be at vdd/2 if it isnt, try to increase the PMOS width and run the simulation again. One of the important parameters tthat defines the **ROBUSTNESS** of the CMOS is ```Switching Threshold (Vm)``` @Vm : Vin = Vout
+
+## Fabrication Process for a CMOS Inverter
+
+Fabrication of CMOS Inverter is a 16-Mask process
+
+### 1. Selecting the substrate 
+
+- P-Type substrate with resistivity around (5-50 ohm) doping level (10^15 cm^-3) and orientation (100).
+- Note that substrate doping should be less than well doping (used to fabricate NMOS and PMOS)
+
+### 2. Create active resistance
+
+This step creates pockets for NMOS and PMOS
+1. Grow SiO2(~40nm) on Psub
+2. deposit ~80nm Si3N4 on SiO2
+3. deposit 1um layer of photoresist(used to define regions)
+4. photolithography
+5. etch out Si3N4 and SiO2 using a suitable solvent
+6. Place the obtained structure in oxidartion furnace due to which field oxide is grown.This process is called ```LOCOS``` that is ```Local oxidation of silicon```
+7. Etch out Si3N4 using hot phosphoric acid
+
+### 3.NWel and PWel formation
+
+- Apply photoresist, apply mask that covers NMOS
+- Expose to UV, Wash, remove mask, appl boron(p-type) using Ion Implantation at an energy of 200Kev(for diffusion)
+- repeat it for the other half using phosphorous @400Kev because phosphorous is heavier
+- Wells have been created but the depth is low. Therefore subject it to high temperature furnace which increases the well depth.
+
+### 4. Formation of Gate
+
+- We repeat the step 3 but at low energy with p-type implant as boron @60Kev and n-type implant as Arsenic.
+- Due to this The SiO2 is damaged as the dopants penetrate through it.
+- Therefore original SiO2 is etched out using dilute HF solution and regrown to give high quality oxide(~10 nm thin)
+- Finally for the gate to form, apply N-type ion implants for low gate resistance.
+- Now mask on small width of Nwell and PWell above SiO2  and perform photolithography
+- Gate Formation is Done
+
+### 5. Lighlt Doped Drain Formation(LDD Formation)
+
+- On the surface of SiO2 corresponding to NWell, apply photoresist, mask it, put phosphorous to make N-Implant on p-well(N-)
+- Similarly do it for the other side using boron that forms (p-) implant
+- This LDD has to be protected from further process
+- so, Deposit 0.1um thick SiO2 on full structure and etch out using plasma anisotropic etching that results in formation of side wall spacers..
+
+### 6. Source and Drain Formation
+
+- Mask Nwell structure, deposit arsenic @75KeV that forms an N+ implant on Pwell
+- use boron for P+ implant formation on Nwell
+- Subject it to high temperature furnace that results in required thickness of N+,P+,N-,P- implants.
+
+### 7. Steps to form contacts and interconnects
+
+- Etch thin SiO2 oxide in HF solution
+- Deposit Titanium of wafer surface using sputtering all over the structure
+- Wafer heated at 600-700 degree in ambient N2 environment for 60 sec that reults in low resistance TiSi2 where the gate of both MOS is present.
+- At the other places, TiN is formed that's used for local communication
+- Etch off TiN on and half around gate structure of both MOS using RCA Cleaning
+
+### 8. Higher level metal formation
+
+- On the resulted structure, deposit a thick layer of (1um) SiO2 doped with P/B known as phosphoborosilicate glass
+- To make the added surface plain, use CMP (Chemical Metal Polishing)
+- For the creation of contact pins, proper holes with contacts have to be made
+- This can be done using Al, W and TiN layer depositions.
+- Deposit a layer of Si3N4 that acts as dielectric to protect the chip.
+
+### 9. Final STructure
+
+ ![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/0e355a75-55ff-4723-96ae-4abd5845697c)
+
+## Inverter Layout using Magic
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign
+magic -T sky130A.tech sky130_inv.mag
+```
+
+![day3 1](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/6f339dd1-3e58-438d-95cf-55179dfceccc)
+
+
+## Exploring the Layout displayed by MAGIC
+
+Select the specific layer/device by hovering over the object and pressing, s, iteratively, until you traverse the hierarchy to the specified object:
+
+![day3 2](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/f6cc8623-ae59-44ff-b081-d466e758235a)
+
+- select a region from the layout, go to the console and type ```what``` to display the information of selected area
+- To select a region, place ```cursor``` on that point and  press```s```. More the number of times you press ```s```, higher the abstraction selected.
+
+![day3 3](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/c35cf985-d19e-4cd0-b5d2-98b6bc441b14)
+
+refer to [inverter](https://github.com/nickson-jose/vsdstdcelldesign) to create layout for CMOS Inverter
+
+### DRC Check
+
+To check for DRC Errors, select a region (left click for starting point, right click at end point) and see the DRC column at the top that shows how many DRC errors are present.The Details of DRC Errors will be printed on the console.
+
+![day3 2(1)](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/012b09cb-2ec0-4599-8e2a-25aae50ff984)
+
+For more information on DRC errors plase refer to: [DRC_Erros](https://skywater-pdk--136.org.readthedocs.build/en/136/)
+For more information on how to fix these DRC errors using Magic please refer to: [fix_DRC](http://opencircuitdesign.com/magic/)
+
+
+## Extracting PEX to SPICE with MAGIC
+
+Select Full inverter layout. Then
+
+![day3 4](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/cee17ded-023b-4f0e-aaa2-56888e04fdfa)
+
+![day3 6](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/ddbb4358-197f-4d37-b891-628d244ace03)
+
+The above file has details of inverter netlist but the sources and their values are not specified. So we have to modify the file.
+
+- Grid size from the layout is 0.01u
+- specify the library for MOS
+- create VDD, VSS, Input pulse Va
+- specify the type of analysis to be done
+
+### Grid Size
+
+![day3 7](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/6582716b-e0d4-418d-99df-b1dde40af3ce)
+
+## Modified Spice netlist
+
+![dd](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/1cdae9c9-cfec-4b4a-a257-20aad102a294)
+
+To run the spice netlist, run ```ngspice sky130_inv.spice``` and ```plot y vs time a```
+
+![day3 8](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/fc612751-df6f-4194-b18b-cb7c90e31286)
+
+The results obtained from the graph are :
+- Rise Transition : 0.0395ns
+- Fall transition : 0.0282ns
+- Cell Rise delay : 0.03598ns
+- Cell fall delay : 0.0483ns
+
+</details>
