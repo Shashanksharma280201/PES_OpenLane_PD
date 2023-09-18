@@ -1,6 +1,4 @@
-# Advanced Physical Design using OpenLANE/Sky130 
-
-## Application Specific Integrated Circuit (ASIC)
+# Application Specific Integrated Circuit (ASIC)
 
 To develop an ASIC, We mainly require 3 components
 - RTL IPs (github.com, opencores.org, librecores.org)
