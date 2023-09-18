@@ -1,18 +1,5 @@
 # Advanced Physical Design using OpenLANE/Sky130 
 
-## IC Package 
-The most critical component of the IC is the ```chip``` because it contains the actual functionality of the device and IO pads helps in exchange of signals with the chip.
-
-## CHIP
-
-A chip usually consists of different components such as macros, IO Pads and pins, Foundary IPs etc.
-
-1. **Macros:** Macros in VLSI design are predefined and reusable blocks of digital circuitry, often standard cells, used to simplify the design process by providing building blocks for complex integrated circuits.
-
-2. **Foundry IPs (Intellectual Property):** Foundry IPs are pre-designed and verified circuit components, such as analog blocks, memory cores, or standard interfaces, licensed from semiconductor foundries for integration into custom chip designs.
-
-3. **IO Pads and IO Pins:** IO pads are the physical interfaces between a chip and the external world, while IO pins are the electrical connections from these pads to the internal circuitry, facilitating input and output communication in integrated circuits.
-
 ## Application Specific Integrated Circuit (ASIC)
 
 To develop an ASIC, We mainly require 3 components
