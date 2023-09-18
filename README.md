@@ -20,11 +20,11 @@ To develop an ASIC, We mainly require 3 components
 - PDK data (Qflow, OpenRoad, OpenLane)
 - EDA Tools [google+skywater](github.com/google/skywater-pdk)
 
-1. **```RTL```** : It is a level of abstraction in digital design and electronics where a system's behavior is described in terms of registers, logic gates, and the flow of data between them.
-2. **```PDK```** : Process Design Kit is a collection of files, libraries, and documentation provided by semiconductor foundries to assist designers in creating integrated circuits (ICs) that are compatible with a specific manufacturing process. PDKs include information on design rules, device models, and technology files required for designing and simulating ICs.
-3. **```EDA```** : Electronic Design Automation tools are software tools used for designing and testing electronic systems, including ICs and PCBs.
+1. **```RTL```** : refers to a specific abstraction level in the field of digital design and electronics, where the behavior of a system is articulated in terms of registers, logic gates, and the interconnected flow of data between these elements
+2. **```PDK```** :  short for Process Design Kit, comprises a set of resources such as files, libraries, and documentation offered by semiconductor foundries. These resources are intended to aid designers in the creation of integrated circuits (ICs) that align with a particular manufacturing process. PDKs encompass crucial information concerning design regulations, device models, and technology files essential for the design and simulation of ICs.
+3. **```EDA```** : or Electronic Design Automation tools, represents a category of software applications employed for the development and evaluation of electronic systems, encompassing ICs and PCBs (Printed Circuit Boards). These tools play a pivotal role in facilitating the design and testing phases of electronic systems.
 
-## RTL2GDSII FLow (simplified)
+## RTL to GDS FLow 
 
 - ```synthesis```
 - ```Floorplanning```
@@ -33,8 +33,6 @@ To develop an ASIC, We mainly require 3 components
 - ```Clock Tree Synthesis```
 - ```Routing```
 - ```Signoff```
-
-EDA Tools go through all these steps mentioned to obtain the required Layout file that is required for tapeout and The **GOAL** is to produce a clean GDSII with no human intervention which can be used to harden macros and chips (clean : No LVS, DRC, Timing violatons).
 
 ## OpenLANE Design Stages
 
@@ -85,23 +83,6 @@ cd OpenLane
 make mount
 ./flow.tcl -interactive 
 prep -design <path_to_your_design_folder> -tag <tag> -overwrite //overwrite is optional
-```
-
-**Interactive mode** offers us to learn all the steps present in automated flow step by step.
-The steps are as follows : 
-
-```
-run_synthesis
-run_floorplan
-run_placement
-run_cts
-run_routing
-write_powered_verilog followed by set_netlist $::env(lvs_result_file_tag).powered.v
-run_magic
-run_magic_spice_export
-run_magic_drc
-run_lvs
-run_antenna_check
 ```
 
 # COURSE
