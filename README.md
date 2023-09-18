@@ -576,7 +576,7 @@ add the below 2 lines in the initial stage of interactive flow and ```run_synthe
 
 The above figure shows that our vsdinv cell has been used in synthesis process
 
-![Screenshot from 2023-09-14 15-57-05](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/f18b35db-10d4-4f47-b3b7-8a3ef657d57f)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/e328e642-efa3-450c-8841-49463457cbd3)
 
 since there is slack, we have to reduce it
 
@@ -592,11 +592,12 @@ For the design to be complete, the worst negative slack needs to be above or equ
     - Enabled SYNTH_STRATEGY with parameter as "DELAY 1"
     - The synthesis result is :
   
-    ![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/b4a26ed1-6ac8-449c-bc6e-31ed04470c4e)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/1777843a-5819-4519-9d75-0b524a5962a3)
 
-    The slack has reduced a lot but still didnt meet the requirement. The sdc file used is [my_base.sdc](https://github.com/yagnavivek/PES_OpenLane_PD/blob/main/my_base.sdc) defined in [pre_sta.conf](https://github.com/yagnavivek/PES_OpenLane_PD/blob/main/pre_sta.conf) using the command ```sta pre_sta.conf```
+    The slack has reduced a lot but still didnt meet the requirement. The sdc file used is [my_base.sdc](https://github.com/yagnavivek/PES_OpenLane_PD/blob/main/my_base.sdc) defined in ![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/b1f0a7f9-5286-424d-b5d8-12d1d5944578)
+ using the command ```sta pre_sta.conf```
 
-   ![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/f7356fd8-9c7c-4d99-88d6-67ceadfa774f)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/abc84a21-bb24-4c7f-966c-a6407f5cebd5)
 
     The delay is high when the fanout is high. Therefore we can re-run synthesis by changing the value of ```SYNTH_MAX_FANOUT``` variable
     
@@ -605,13 +606,13 @@ For the design to be complete, the worst negative slack needs to be above or equ
 
     - We can see which net is driving most outputs and replace the driver cell with larger form of its own kind
 
-    ![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/f4e05f1d-0c2c-404a-8b43-6b82a097d73d)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/11d6e569-12d0-43b2-959c-0f29afaf9675)
 
 4. Optimize the fanout value with OpenLANE tool
 
 Since we have synthesised the core using our vsdinv cell too and as it got successfully synthesized, it should be visible in layout after ```run_placement``` stage which is followed after ```run_floorplan``` stage
 
-![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/8893a21d-26c6-4b36-bbc4-a2b9c1637cfb)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/a15da9cd-ab4c-4684-9525-770d1f9a66ab)
 
 ## Clock Tree Synthesis
 
@@ -634,21 +635,19 @@ In OpenROAD the timing analysis is done by creating a .db database file. This da
 - set the clocks
 - generate the reports
 
-![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/74edcca7-9519-4269-a2b9-2fafdeef4e66)
-![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/02cf90b0-d02b-411d-847b-be6159e74502)
-![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/a5c62171-3c46-482d-8ad5-d7700774d1ec)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/f85796c2-8bcd-45e0-b282-12c822fec9a8)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/255e0954-cac6-4a1a-a1cf-bb1f11870bf2)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/396b017d-2f3c-4b18-8b6d-1e635a717d1f)
 
 The results wont meet the timing because we are using min and max lib files and openroad doesnot support multi corner optimisation. Therefore we do it using only typical corner lib
 
-![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/e3687d97-556d-4b81-8261-0c78aba74d13)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/db042727-e91c-40cd-8d0e-a564eb6ee502)
 
-![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/843fce06-f1d1-4469-92d4-b9b1b4a82b91)
-
-![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/928a49af-78b3-4e0e-a8b2-5c2bf7589f20)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/fb644353-726b-49f2-93a6-8eb8502a8c33)
 
 We have to ensure that the skew is withing 10% of clock period ie., should be less than 1.6 in my case
 
-![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/dbd809aa-dcda-43a1-97da-9f0ab81fbf08)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/749959ff-b4ec-4191-a9bc-c448ec6e745c)
 
 </details>
 
@@ -673,7 +672,7 @@ The PDN feature within OpenLANE will create:
 - Power straps to bring power into the center of the chip
 - Power rails for the standard cells
 
-![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/b4fd0fda-f775-4b33-9aa8-c9a252ff19ab)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/f6c1cc9c-5fa9-4366-b61c-169010ceaf25)
 
 Note: The pitch of the metal 1 power rails defines the height of the standard cells
 
