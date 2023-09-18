@@ -26,36 +26,34 @@ To develop an ASIC, We mainly require 3 components
 OpenLANE flow consists of several stages. By default all flow steps are run in sequence. Each stage may consist of multiple sub-stages. OpenLANE can also be run interactively as shown [here][25].
 
 1. *Synthesis*
-    1. `yosys` - Performs RTL synthesis
+    1. `yosys` - Executes RTL synthesis
     2. `abc` - Performs technology mapping
-    3. `OpenSTA` - Pefroms static timing analysis on the resulting netlist to generate timing reports
-2. *Floorplan and PDN*
+    3. `OpenSTA` - Conducts static timing analysis on the resultant netlist to produce timing reports
+2. *Floorplan and Power Delivery Network (PDN) Phase*
     1. `init_fp` - Defines the core area for the macro as well as the rows (used for placement) and the tracks (used for routing)
     2. `ioplacer` - Places the macro input and output ports
     3. `pdn` - Generates the power distribution network
     4. `tapcell` - Inserts welltap and decap cells in the floorplan
-3. *Placement*
-    1. `RePLace` - Performs global placement
-    2. `Resizer` - Performs optional optimizations on the design
-    3. `OpenPhySyn` - Performs timing optimizations on the design
-    4. `OpenDP` - Perfroms detailed placement to legalize the globally placed components
-4. *CTS*
-    1. `TritonCTS` - Synthesizes the clock distribution network (the clock tree)
-5. *Routing*
-    1. `FastRoute` - Performs global routing to generate a guide file for the detailed router
-    2. `CU-GR` - Another option for performing global routing.
-    3. `TritonRoute` - Performs detailed routing
-    4. `SPEF-Extractor` - Performs SPEF extraction
-6. *GDSII Generation*
-    1. `Magic` - Streams out the final GDSII layout file from the routed def
-    2. `Klayout` - Streams out the final GDSII layout file from the routed def as a back-up
-7. *Checks*
-    1. `Magic` - Performs DRC Checks & Antenna Checks
-    2. `Klayout` - Performs DRC Checks
-    3. `Netgen` - Performs LVS Checks
-    4. `CVC` - Performs Circuit Validity Checks
-
-OpenLane can be operated at 2 different modes ie., Automated flow and Interactive mode.
+3. *Placement Phase*
+    1. `RePLace` -  Performs global placement
+    2. `Resizer` -  Offers optional design optimizations
+    3. `OpenPhySyn` -  Applies timing optimizations to the design
+    4. `OpenDP` - Carries out detailed placement to legalize the globally positioned components
+4. *Clock Tree Synthesis (CTS) Phase*
+    1. `TritonCTS` - Synthesizes the clock distribution network, known as the clock tree
+5. *Routing Phase*
+    1. `FastRoute` - Conducts global routing to create a guide file for the detailed router
+    2. `CU-GR` - Another choice for global routing
+    3. `TritonRoute` -  Executes detailed routing
+    4. `SPEF-Extractor` - Extractor - Extracts SPEF (Standard Parasitic Exchange Format) data
+6. *GDSII Generation Phase*
+    1. `Magic` -  Generates the final GDSII layout file from the routed def
+    2. `Klayout` -  Generates an additional GDSII layout file from the routed def as a backup
+7. *Design Checks Phase*
+    1. `Magic` -Performs Design Rule Checking (DRC) and Antenna Checks
+    2. `Klayout` -  Conducts Design Rule Checking (DRC)
+    3. `Netgen` - Executes Layout vs. Schematic (LVS) Checks
+    4. `CVC` -  Performs Circuit Validity Checks
 
 ## To enter the automated flow, use these commands
 ```
@@ -64,10 +62,8 @@ make mount
 ./ flow.tcl -design openlane/<DESIGN_NAME>  -tag <TAG>
 ```
 
-## To enter the Interactive mode, use these commands 
+## This is to enter the Interactive mode (After the above step)
 ```
-cd OpenLane
-make mount
 ./flow.tcl -interactive 
 prep -design <path_to_your_design_folder> -tag <tag> -overwrite //overwrite is optional
 ```
