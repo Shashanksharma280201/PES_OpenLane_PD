@@ -575,7 +575,7 @@ To improve the design we need to improve the slack and resynthesize
 
 Since we have synthesised the core using our vsdinv cell too and as it got successfully synthesized, it should be visible in layout after ```run_placement``` stage which is followed after ```run_floorplan``` stage
 
-![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/a15da9cd-ab4c-4684-9525-770d1f9a66ab)
+![image](https://github.com/Shashanksharma280201/PES_OpenLane_PD/assets/79470436/228793cd-6d03-4f92-8fa2-fc79a47189d9)
 
 ## Clock Tree Synthesis
 
