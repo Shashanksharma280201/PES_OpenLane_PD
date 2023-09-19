@@ -324,70 +324,71 @@ plot out vs in
 
 Observe the output. It should be symmetric ie., the threshold voltage should be at vdd/2 if it isnt, try to increase the PMOS width and run the simulation again. One of the important parameters tthat defines the **ROBUSTNESS** of the CMOS is ```Switching Threshold (Vm)``` @Vm : Vin = Vout
 
-## Fabrication Process for a CMOS Inverter
+# CMOS Inverter Fabrication Process
 
-Fabrication of CMOS Inverter is a 16-Mask process
+The fabrication of a CMOS (Complementary Metal-Oxide-Semiconductor) inverter involves a complex 16-mask process. This document provides an overview of the key steps involved in the fabrication process.
 
-### 1. Selecting the substrate 
+## Step 1: Substrate Selection
 
-- P-Type substrate with resistivity around (5-50 ohm) doping level (10^15 cm^-3) and orientation (100).
-- Note that substrate doping should be less than well doping (used to fabricate NMOS and PMOS)
+- Start with a P-Type substrate with a resistivity ranging from 5 to 50 ohms.
+- The substrate should have a doping level of approximately 10^15 cm^-3.
+- Ensure that the substrate has a (100) orientation.
+- Note: Substrate doping should be less than well doping used for NMOS and PMOS fabrication.
 
-### 2. Create active resistance
+## Step 2: Active Region Creation
 
-This step creates pockets for NMOS and PMOS
-1. Grow SiO2(~40nm) on Psub
-2. deposit ~80nm Si3N4 on SiO2
-3. deposit 1um layer of photoresist(used to define regions)
-4. photolithography
-5. etch out Si3N4 and SiO2 using a suitable solvent
-6. Place the obtained structure in oxidartion furnace due to which field oxide is grown.This process is called ```LOCOS``` that is ```Local oxidation of silicon```
-7. Etch out Si3N4 using hot phosphoric acid
+- Grow a layer of SiO2 (~40nm) on the P-Type substrate.-
+- Deposit a layer of approximately 80nm of Si3N4 on top of the SiO2.
+- Deposit a 1um layer of photoresist, which will be used to define regions.
+- Perform photolithography to pattern the photoresist.
+- Etch out the Si3N4 and SiO2 layers using an appropriate solvent.
+- Utilize oxidation to grow field oxide, a process known as "LOCOS" (Local Oxidation of Silicon).
+- Remove the Si3N4 layer using hot phosphoric acid.
 
-### 3.NWel and PWel formation
+## Step 3: N-Well and P-Well Formation
 
-- Apply photoresist, apply mask that covers NMOS
-- Expose to UV, Wash, remove mask, appl boron(p-type) using Ion Implantation at an energy of 200Kev(for diffusion)
-- repeat it for the other half using phosphorous @400Kev because phosphorous is heavier
-- Wells have been created but the depth is low. Therefore subject it to high temperature furnace which increases the well depth.
+- Apply photoresist and a mask to cover the NMOS or PMOS region separately.
+- Expose the substrate to UV light, wash it, remove the mask, and apply boron (p-type) using Ion Implantation at an energy of 200Kev for diffusion.
+- Repeat the process for the other half using phosphorous at 400Kev since phosphorous is heavier.
+- To increase well depth, subject the substrate to high-temperature furnace treatment.
 
-### 4. Formation of Gate
+## Step 4: Gate Formation
 
-- We repeat the step 3 but at low energy with p-type implant as boron @60Kev and n-type implant as Arsenic.
-- Due to this The SiO2 is damaged as the dopants penetrate through it.
-- Therefore original SiO2 is etched out using dilute HF solution and regrown to give high quality oxide(~10 nm thin)
-- Finally for the gate to form, apply N-type ion implants for low gate resistance.
-- Now mask on small width of Nwell and PWell above SiO2  and perform photolithography
-- Gate Formation is Done
+- Repeat Step 3 but at lower energy, using boron at 60Kev for p-type implant and arsenic for n-type implant.
+- Regrow a high-quality oxide layer (~10nm thin) after etching the damaged SiO2.
+- Apply N-type ion implants for low gate resistance.
+- Mask a small width of N-Well and P-Well above SiO2 and perform photolithography to form the gate.
 
-### 5. Lighlt Doped Drain Formation(LDD Formation)
+## Step 5: Lightly Doped Drain Formation (LDD Formation)
 
-- On the surface of SiO2 corresponding to NWell, apply photoresist, mask it, put phosphorous to make N-Implant on p-well(N-)
-- Similarly do it for the other side using boron that forms (p-) implant
-- This LDD has to be protected from further process
-- so, Deposit 0.1um thick SiO2 on full structure and etch out using plasma anisotropic etching that results in formation of side wall spacers..
+- Apply photoresist to cover the SiO2 corresponding to the N-Well, mask it, and introduce phosphorous to create an N-Implant on the P-Well (N-).
+- Repeat the process for the other side using boron to form the (P-) implant.
+- Protect the LDD with a 0.1um thick SiO2 layer and etch it using plasma anisotropic etching to create side wall spacers.
 
-### 6. Source and Drain Formation
+## Step 6: Source and Drain Formation
 
-- Mask Nwell structure, deposit arsenic @75KeV that forms an N+ implant on Pwell
-- use boron for P+ implant formation on Nwell
-- Subject it to high temperature furnace that results in required thickness of N+,P+,N-,P- implants.
+- Mask the N-Well structure and deposit arsenic at 75KeV to form an N+ implant on the P-Well.
+- Use boron for P+ implant formation on the N-Well.
+- Subject the substrate to high-temperature furnace treatment to achieve the desired thickness of N+, P+, N-, and P- implants.
 
-### 7. Steps to form contacts and interconnects
+## Step 7: Contacts and Interconnects
 
-- Etch thin SiO2 oxide in HF solution
-- Deposit Titanium of wafer surface using sputtering all over the structure
-- Wafer heated at 600-700 degree in ambient N2 environment for 60 sec that reults in low resistance TiSi2 where the gate of both MOS is present.
-- At the other places, TiN is formed that's used for local communication
-- Etch off TiN on and half around gate structure of both MOS using RCA Cleaning
+- Etch the thin SiO2 oxide in HF solution.
+- Deposit Titanium onto the wafer surface using sputtering, covering the entire structure.
+- Heat the wafer at 600-700 degrees in an ambient N2 environment for 60 seconds to create low-resistance TiSi2 where the gate of both MOS is present.
+- Form TiN at other locations for local communication, and etch off TiN around the gate structures using RCA Cleaning.
 
-### 8. Higher level metal formation
+## Step 8: Higher-Level Metal Formation
 
-- On the resulted structure, deposit a thick layer of (1um) SiO2 doped with P/B known as phosphoborosilicate glass
-- To make the added surface plain, use CMP (Chemical Metal Polishing)
-- For the creation of contact pins, proper holes with contacts have to be made
-- This can be done using Al, W and TiN layer depositions.
-- Deposit a layer of Si3N4 that acts as dielectric to protect the chip.
+- Deposit a thick layer (1um) of SiO2 doped with P/B, known as phosphoborosilicate glass, on the resulting structure.
+- Use Chemical Mechanical Polishing (CMP) to achieve a flat surface.
+- Create contact pins and holes using Al, W, and TiN layer depositions.
+- Deposit a layer of Si3N4 to act as a dielectric to protect the chip.
+
+This comprehensive 16-mask process results in the successful fabrication of a CMOS inverter.
+
+For more detailed instructions and specifications, refer to the accompanying documentation.
+
 
 ### 9. Final STructure
 
@@ -542,12 +543,12 @@ The above figure shows that our vsdinv cell has been used in synthesis process
 
 since there is slack, we have to reduce it
 
-VLSI engineers will obtain system specifications in the architecture design phase. These specifications will determine a required frequency of operation. To analyze a circuit's timing performance designers will use static timing analysis tools (STA). When referring to pre clock tree synthesis STA analysis we are mainly concerned with setup timing in regards to a launch clock. STA will report problems such as worst negative slack (WNS) and total negative slack (TNS). These refer to the worst path delay and total path delay in regards to our setup timing restraint. Fixing slack violations can be debugged through performing STA analysis with OpenSTA, which is integrated in the OpenLANE tool. To describe these constraints to tools such as In order to ensure correct operation of these tools two steps must be taken:
+VLSI engineers use system specifications in the architecture design phase to determine the required operating frequency. Static timing analysis (STA) tools are crucial for assessing a circuit's timing performance, particularly setup timing before clock tree synthesis. STA identifies issues like worst negative slack (WNS) and total negative slack (TNS), which represent the most critical and overall path delays concerning setup timing constraints. To resolve slack violations, OpenSTA, integrated into the OpenLANE tool, is employed. To ensure tool correctness, two steps are essential:
 
-- Design configuration files (.conf) - Tool configuration files for the specified design
-- Design Synopsys design constraint (.sdc) files - Industry standard constraints file
+- Create design configuration files (.conf) for tool settings
+- Define design constraints using Synopsys design constraint (.sdc) files, following industry standards.
 
-For the design to be complete, the worst negative slack needs to be above or equal to 0. If the slack is outside of this range we can do one of multiple things:
+To improve the design we need to improve the slack and resynthesize 
 
 1. Review our synthesis strategy in OpenLANE
     - Enalbed CELL_SIZING
@@ -586,7 +587,7 @@ Since we have synthesised the core using our vsdinv cell too and as it got succe
 
 OpenLANE has the OpenROAD application integrated into its flow. The OpenROAD application has OpenSTA integrated into its flow. Therefore, we can perform STA analysis from within OpenLANE by invoking OpenROAD.
 
-In OpenROAD the timing analysis is done by creating a .db database file. This database file is created from the post-cts LEF and DEF files. To generate the .db files within OpenROAD:
+In OpenROAD, you perform timing analysis by generating a .db database file from the post-CTS LEF and DEF files.
 - Invoke OpenRoad
 - Read lef file from tmp folder of runs
 - Read def file from results of cts
